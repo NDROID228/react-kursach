@@ -1,0 +1,24 @@
+@import '../../assets/constants/constants.scss';
+
+.introduction-box {
+    margin: 1% 0;
+    width: 100%;
+    padding: 5px;
+    height: 600px;
+    border: 1px solid $dark-brown;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    .chessboard-box {
+        aspect-ratio: 1 / 1;
+        height: 100%;
+        border: 1px solid $dark-brown;
+    }
+    .text-box {
+        aspect-ratio: 1.2 / 1;
+        height: 100%;
+        border: 1px solid $dark-brown;
+    }
+}
