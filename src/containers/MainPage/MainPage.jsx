@@ -19,13 +19,21 @@ function MainPage() {
     },
   ];
 
+  const textIntro = (
+    <>
+      <h1>Do you really think chess is a hard game?</h1>
+      <h2>Are your games messy the same way as there?</h2>
+      <h2>Then try out this website and think again!</h2>
+    </>
+  );
+
   return (
     <div className="container">
-      <Header />
+      <Header currentPage="main" />
       <main>
         <div className="main-content">
           {boardConfigArr.map((config) => {
-            return <IntroBox boardConfig={config} key={`box-${config.id}`}/>;
+            return <IntroBox boardConfig={config} key={`box-${config.id}`} textContent={textIntro} />;
           })}
         </div>
       </main>

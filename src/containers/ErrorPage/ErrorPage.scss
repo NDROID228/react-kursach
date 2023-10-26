@@ -1,0 +1,20 @@
+@import "../../assets/constants/constants.scss";
+
+.error-box {
+    height: 100vh;
+
+    color: $dark-cyan;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .num-404 {
+        font-size: 200px;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+    .text-404 {
+        font-size: 40px;
+    }
+}

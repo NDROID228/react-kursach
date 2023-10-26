@@ -2,6 +2,8 @@
 
 header {
   position: fixed;
+  top: 0;
+  left: 0;
 
   display: flex;
   align-items: center;
@@ -33,16 +35,27 @@ header {
       width: fit-content;
       height: 100%;
 
+      background-color: $dark-cyan;
       user-select: none;
+      cursor: pointer;
 
       img {
         aspect-ratio: 1 / 1;
         height: 90%;
       }
       p {
+        padding-right: 10px;
         flex-grow: 1;
         font-size: 2.5rem;
         text-align: center;
+      }
+      &.highlighted {
+        background-color: $light-cyan;
+        border-radius: 10px 10px 0 0;
+        
+        p {
+          color: $dark-cyan;
+        }
       }
     }
 
@@ -68,6 +81,7 @@ header {
 
           font-size: 2.5rem;
           user-select: none;
+          cursor: pointer;
 
           &:hover {
             border-radius: 10px 10px 0 0;

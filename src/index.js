@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import MainPage from './containers/MainPage/MainPage';
+import AppRouter from './router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MainPage />
+    <AppRouter />
   </React.StrictMode>
 );
