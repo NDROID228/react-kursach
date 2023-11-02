@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import IntroBox from "../../components/IntroBox/IntroBox";
 import { useState } from "react";
 import "./MainPage.scss";
+import Footer from "../../components/Footer/Footer";
 
 function MainPage() {
   // const [boardConfigArr, setBoardConfigArr] = useState([]);
@@ -37,6 +38,8 @@ function MainPage() {
           })}
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 }
