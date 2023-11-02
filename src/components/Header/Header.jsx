@@ -1,7 +1,7 @@
 import "./Header.scss";
 import { useEffect, useReducer } from "react";
 import { DarkLogo, LightLogo } from "../../assets/img/Images";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import
 
 const Header = ({ currentPage }) => {

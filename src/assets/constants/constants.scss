@@ -41,8 +41,7 @@ a {
   align-items: center;
 }
 main {
-  position: absolute;
-  top: $header-height;
+  margin-top: $header-height;
   left: 0;
 
   display: flex;
@@ -53,7 +52,7 @@ main {
   width: 100%;
   min-height: calc(100vh - $header-height);
   height: calc(100vh - $header-height);
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 p {
