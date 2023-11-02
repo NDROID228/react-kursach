@@ -1,5 +1,6 @@
 import Header from "../../components/Header/Header";
 import "./AboutPage.scss";
+import Footer from "../../components/Footer/Footer";
 
 const AboutPage = () => {
   return (
@@ -10,6 +11,7 @@ const AboutPage = () => {
           <h1>This is a AboutPage.</h1>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

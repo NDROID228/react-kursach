@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import "./ErrorPage.scss";
 
@@ -11,6 +12,7 @@ const ErrorPage = () => {
           <p className="text-404">Page is not found.</p>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
