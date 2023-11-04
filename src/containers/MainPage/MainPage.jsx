@@ -17,6 +17,8 @@ function MainPage() {
   const boardConfigArr = [
     {
       id: "intro_board",
+      areArrowsAllowed: false,
+      arePiecesDraggable: false,
     },
   ];
 
