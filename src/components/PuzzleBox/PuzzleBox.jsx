@@ -12,6 +12,20 @@ const PuzzleBox = ({ boardConfig, correctMovesArr }) => {
   //   console.log(game.ascii());
   // }, [game])
 
+  // const makeAutoMove = () => {
+  //   console.log("made automove");
+  //   const autoMove = correctMovesArr[correctMove];
+    
+  //   const gameCopy = new Chess();
+  //   gameCopy.loadPgn(game.pgn());
+
+  //   gameCopy.move(autoMove);
+  //   setGame(gameCopy);
+  //   setCorrectMove(prev => prev + 1);
+
+  //   return true;
+  // } 
+
   const onDrop = (sourceSquare, targetSquare, piece) => {
     // console.log(sourceSquare, targetSquare, piece);
 
@@ -37,9 +51,14 @@ const PuzzleBox = ({ boardConfig, correctMovesArr }) => {
     if(correctMovesArr[correctMove] === move.san) {
       // showSuccessMsg();
       setGame(gameCopy);
+      setCorrectMove(prev => prev + 1);
       if (correctMove === correctMovesArr.length) {
         boardConfig["arePiecesDraggable"] = false;
+      } else {
+        // makeAutoMove();
       }
+
+      console.log(boardConfig["arePiecesDraggable"]);
     } else {
       // showFailMsg();
       
