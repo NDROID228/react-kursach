@@ -1,11 +1,9 @@
 @import "../../assets/constants/constants.scss";
 
 .introduction-box {
-  margin: 1% 0;
   width: 100%;
-  padding: 5px;
-  height: 95%;
-  //   border: 1px solid $dark-brown;
+  height: calc(100vh - $header-height);
+  // border: 1px solid $dark-brown;
 
   display: flex;
   align-items: center;

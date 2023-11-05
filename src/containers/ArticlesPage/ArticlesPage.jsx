@@ -7,13 +7,9 @@ const ArticlesPage = () => {
   return (
     <div className="container">
       <Header currentPage="articles" />
-
-      <main>
-        <div className="main-content">
-          <ArticleSlider />
-        </div>
-      </main>
-      
+        <main>
+          <div className="main-content">{/* <ArticleSlider /> */}</div>
+        </main>
       <Footer />
     </div>
   );

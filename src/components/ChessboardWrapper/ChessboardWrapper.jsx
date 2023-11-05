@@ -14,7 +14,7 @@ const ChessboardWrapper = ({ boardConfig, game, setGame }) => {
         position={game.fen()}
         arePiecesDraggable={boardConfig.arePiecesDraggable || null}
         areArrowsAllowed={boardConfig.areArrowsAllowed || null}
-        onPieceDrop={boardConfig.onPieceDrop}
+        onPieceDrop={boardConfig.onPieceDrop || (() => {})}
       />
     </div>
   );
