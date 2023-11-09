@@ -30,12 +30,18 @@ const IntroBox = ({ boardConfig, textContent }) => {
   });
 
   return (
-    <div className="introduction-box">
-      <div className="chessboard-box">
-        <ChessboardWrapper boardConfig={boardConfig} game={game} key={boardConfig.id} />
-      </div>
-      <div className="text-box">
-        { textContent }
+    <div className="introduction-container">
+      <div className="introduction-box">
+        <div className="chessboard-container">
+          <div className="chessboard-box">
+            <ChessboardWrapper
+              boardConfig={boardConfig}
+              game={game}
+              key={boardConfig.id}
+            />
+          </div>
+        </div>
+        <div className="text-box">{textContent}</div>
       </div>
     </div>
   );

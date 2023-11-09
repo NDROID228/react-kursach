@@ -1,6 +1,6 @@
 @import "../../assets/constants/constants.scss";
 
-.introduction-box {
+.introduction-container {
   width: 100%;
   height: calc(100vh - $header-height);
   // border: 1px solid $dark-brown;
@@ -9,27 +9,43 @@
   align-items: center;
   justify-content: center;
 
-  color: #324b4a;
-
-  .chessboard-box {
-    margin-right: 2%;
-    aspect-ratio: 1 / 1;
+  .introduction-box {
     height: 80%;
+    width: 100%;
+
+    background-color: $light-skin;
+    color: $dark-brown;
+    border-radius: 20px;
+
     display: flex;
     align-items: center;
-  }
-  .text-box {
-    margin-left: 2%;
-    height: 100%;
-    // border: 1px solid $dark-brown;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    h1 {
-      font-size: 40px;
+
+    .chessboard-container {
+      aspect-ratio: 1 / 1;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .chessboard-box {
+        aspect-ratio: 1 / 1;
+        width: 80%;
+        display: flex;
+        align-items: center;
+      }
     }
-    h2 {
-      font-size: 30px;
+    .text-box {
+      flex-grow: 1;
+      height: 100%;
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      h1 {
+        font-size: 35px;
+      }
     }
   }
 }

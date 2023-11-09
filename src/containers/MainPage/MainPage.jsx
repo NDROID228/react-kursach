@@ -25,8 +25,8 @@ function MainPage() {
   const textIntro = (
     <>
       <h1>Do you really think chess is a hard game?</h1>
-      <h2>Are your games messy the same way as there?</h2>
-      <h2>Then try out this website and think again!</h2>
+      <h1>Are your games messy the same way as there?</h1>
+      <h1>Then try out this website and think again!</h1>
     </>
   );
 
