@@ -1,0 +1,32 @@
+@import "../../assets/constants/constants.scss";
+
+.article-preview {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  background-color: $light-skin;
+  color: $dark-brown;
+
+  display: flex;
+
+  img {
+    display: block;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    user-select: none;
+  }
+
+  .article-content {
+    h2 {
+      font-weight: bold;
+      font-size: 40px;
+    }
+    p {
+      line-height: 1.5;
+      font-size: 25px;
+    }
+  }
+}
