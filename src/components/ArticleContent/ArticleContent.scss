@@ -1,1 +1,22 @@
 @import "../../assets/constants/constants.scss";
+
+article {
+  width: $content-width;
+  height: 100%;
+  // min-height: 100%;
+  color: $dark-cyan;
+  font-size: 20px;
+
+  p {
+    font-size: 1em;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+  }
+}

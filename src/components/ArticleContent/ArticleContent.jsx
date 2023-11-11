@@ -1,6 +1,8 @@
 import "./ArticleContent.scss";
+import Header from "../Header/Header";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Footer from "../Footer/Footer";
 
 const ArticleContent = ({}) => {
   const articleID = useParams();
@@ -16,7 +18,7 @@ const ArticleContent = ({}) => {
       },
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (!response.ok) {
           reject(Error(response.statusText || "Something wrong"));
         } else {
@@ -24,86 +26,54 @@ const ArticleContent = ({}) => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
 
     //   setArticleObj(JSON.parse(json));
   });
-  //   async () => {
-  //     let json;
-
-  //     try {
-  //       const response = await fetch(`http://localhost:3003/getArticleContent`, {
-  //         method: "PUT",
-  //         body: JSON.stringify({ ID: articleID }),
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Accept: "application/json",
-  //         },
-  //       });
-  //       console.log(response);
-
-  //       if (!response.ok) {
-  //         throw Error(response.statusText || "Something wrong");
-  //       }
-
-  //       json = await response.json();
-  //     } catch (error) {
-  //       console.error(error);
-  //       //   return
-  //     }
-
-  //     setArticleObj(JSON.parse(json));
-  //   };
 
   useEffect(() => {
     getArticleContent
       .then((strObj) => {
         let obj = JSON.parse(strObj);
-        console.log(obj.text);
-        let textArr = unpackText(obj.text);
-        const objModified = {
-            ...obj,
-            text: textArr
-        }
-        console.log(objModified);
-        setArticleObj(objModified);
+        // console.log(obj.text);
+        setArticleObj(obj);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }, []);
 
   const unpackText = (textObj) => {
     console.log(textObj);
-    const tmpArr = [];
     for (const key in textObj) {
-      switch (key) {
-        case "h3":
-          console.log(textObj[key]);
-          tmpArr.push(<h3>{textObj[key]}</h3>);
-          break;
-        case "p":
-          console.log(textObj[key]);
-          tmpArr.push(<p>{textObj[key]}</p>);
-          break;
-        default:
-          break;
-      }
+      const values = {
+        h1: <h1>{textObj[key]}</h1>,
+        h3: <h3>{textObj[key]}</h3>,
+        p: <>{textObj[key]}</>,
+      };
+
+      return values[key];
     }
-    console.log(tmpArr);
-    return tmpArr;
   };
 
   return (
-    <div>
-      <div>
-        <h1>{articleObj.title}</h1>
-        { articleObj.text !== undefined ? articleObj.text.map((elem) => {
-          return elem;
-        }) : null }
-        {JSON.stringify(articleObj)}
-      </div>
+    <div className="container">
+      <Header currentPage="articles" />
+      <main>
+        <article>
+          <p>
+            <h1>{articleObj.title || null}</h1>
+          </p>
+          {articleObj.text !== undefined
+            ? articleObj.text.map((textObj) => {
+                return <p>{unpackText(textObj)}</p>;
+              })
+            : null}
+          {/* <code>{JSON.stringify(articleObj) || null}</code> */}
+        </article>
+      </main>
+      <Footer />
     </div>
   );
 };
