@@ -33,7 +33,7 @@ mongoose
   .catch((error) => console.log(`DB connection error: ${error}`));
 
 app.get("/msg", cors(), (req, res) => {
-  res.json(JSON.stringify({text: "Hello! I`m just a little server >_<"}));
+  res.json(JSON.stringify({ text: "Hello! I`m just a little server >_<" }));
 });
 
 app.get("/getArticlesPreview", cors(), (req, res) => {
@@ -41,21 +41,23 @@ app.get("/getArticlesPreview", cors(), (req, res) => {
   let getDataPromise = new Promise((resolve, reject) => {
     // console.log("log from promise");
     Article.find(
-      {},
+      {
+        
+      },
       {
         _id: 1,
         title: 1,
         description: 1,
       }
     )
-    .exec()
-    .then((data) => {
-      resolve(data)
-    })
-    .catch((err) => {
-      reject(err);
-    })
-  })
+      .exec()
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 
   getDataPromise
     .then((resolve) => {
@@ -75,14 +77,14 @@ app.put("/getArticleContent", cors(), (req, res) => {
   let getDataPromise = new Promise((resolve, reject) => {
     // console.log("log from promise");
     Article.findById(reqObj)
-    .exec()
-    .then((data) => {
-      resolve(data)
-    })
-    .catch((err) => {
-      reject(err);
-    })
-  })
+      .exec()
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 
   getDataPromise
     .then((resolve) => {
@@ -93,6 +95,6 @@ app.put("/getArticleContent", cors(), (req, res) => {
     .catch((err) => {
       // console.log("log from error");
       res.status(500);
-      console.log( err);
+      console.log(err);
     });
 });

@@ -36,11 +36,17 @@ function MainPage() {
       <main>
         <div className="main-content">
           {boardConfigArr.map((config) => {
-            return <IntroBox boardConfig={config} key={`box-${config.id}`} textContent={textIntro} />;
+            return (
+              <IntroBox
+                boardConfig={config}
+                key={`box-${config.id}`}
+                textContent={textIntro}
+              />
+            );
           })}
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

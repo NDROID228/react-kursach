@@ -1,0 +1,51 @@
+@import "../../assets/constants/constants.scss";
+
+.basics-container {
+  width: 100%;
+  height: calc(100vh - $header-height);
+  // border: 1px solid $dark-brown;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .basics-box {
+    height: 80%;
+    width: 100%;
+
+    background-color: $light-skin;
+    color: $dark-brown;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+
+    .chessboard-container {
+      aspect-ratio: 1 / 1;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .chessboard-box {
+        aspect-ratio: 1 / 1;
+        width: 80%;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .text-box {
+      flex-grow: 1;
+      height: 100%;
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      h1 {
+        font-size: 35px;
+      }
+    }
+  }
+}
