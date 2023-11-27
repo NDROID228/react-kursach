@@ -51,6 +51,7 @@ const ArticleContent = ({}) => {
         h1: <h1>{textObj[key]}</h1>,
         h3: <h3>{textObj[key]}</h3>,
         p: <>{textObj[key]}</>,
+        // img: <img />
       };
 
       return values[key];

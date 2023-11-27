@@ -10,7 +10,7 @@ const ArticleBox = ({ title, description, image, articleID }) => {
 
   return (
     <div className="article-preview" onClick={toArticleContent}>
-      <img src={image} alt="Шахи" />
+      <img src={image} alt="" />
       <div className="article-content">
         <h2>{title}</h2>
         <p>{description}</p>

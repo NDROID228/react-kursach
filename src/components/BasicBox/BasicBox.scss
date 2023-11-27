@@ -38,6 +38,7 @@
     .text-box {
       flex-grow: 1;
       height: 100%;
+      width: auto;
       
       display: flex;
       flex-direction: column;
@@ -45,6 +46,11 @@
       text-align: center;
       h1 {
         font-size: 35px;
+      }
+
+      img {
+        height: 100%;
+        object-fit: cover;
       }
     }
   }

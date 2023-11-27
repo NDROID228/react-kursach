@@ -1,11 +1,20 @@
 import { Chessboard } from "react-chessboard";
-import { Chess } from "chess.js";
 import "./ChessboardWrapper.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const ChessboardWrapper = ({ boardConfig, game, setGame }) => {
+const ChessboardWrapper = ({ boardConfig, game }) => {
   // console.log(boardConfig);
+  const [boardWidth, setBoardWidth] = useState(100);
   const [boardPosition, setBoardPosition] = useState(game.fen());
+  
+
+  // useEffect(() => {
+  //   const onResizeHandler = () => {
+  //     console.log("window resized");
+  //   }
+
+  //   window.addEventListener("resize", onResizeHandler)
+  // });
 
   return (
     <div className="desk">
@@ -15,6 +24,8 @@ const ChessboardWrapper = ({ boardConfig, game, setGame }) => {
         arePiecesDraggable={boardConfig.arePiecesDraggable || null}
         areArrowsAllowed={boardConfig.areArrowsAllowed || null}
         onPieceDrop={boardConfig.onPieceDrop || (() => {})}
+        boardOrientation={boardConfig.boardOrientation || "white"}
+        // boardWidth={"100%"}
       />
     </div>
   );

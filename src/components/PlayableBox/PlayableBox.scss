@@ -1,0 +1,84 @@
+@import "../../assets/constants/constants.scss";
+
+.chessboard-container {
+  width: 50%;
+  height: 100%;
+}
+
+.text-container {
+  padding: 0 20px;
+
+  width: 50%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 75% 25%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  .color-box {
+    grid-area: 1 / 1 / 2 / 2;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .basic-box-btn {
+      width: 90%;
+      height: 20%;
+    }
+  }
+
+  .level-box {
+    grid-area: 1 / 2 / 2 / 3;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .basic-box-btn {
+      width: 90%;
+      height: 20%;
+    }
+  }
+
+  .button-box {
+    grid-area: 2 / 1 / 3 / 3;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .button-half-box {
+      width: 50%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .basic-box-btn {
+        width: 90%;
+        height: 60%;
+      }
+    }
+  }
+}
+
+// style={{
+//     width: "90%",
+//     height: "15%",
+//     display: "flex",
+//     justifyContent: "space-between",
+//   }}

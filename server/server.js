@@ -1,5 +1,7 @@
 const cors = require("cors");
 const mongoose = require("mongoose");
+const multer = require('multer');
+const fs = require("fs");
 const bodyParser = require("body-parser");
 const Article = require("./schemas/articleSchema");
 
@@ -15,6 +17,21 @@ app.use(
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/upload", upload.single("file"), (req, res) => {
+  res.send("File uploaded!");
+});
 
 const PORT = 3003;
 const DB_URL =
@@ -33,7 +50,7 @@ mongoose
   .catch((error) => console.log(`DB connection error: ${error}`));
 
 app.get("/msg", cors(), (req, res) => {
-  res.json(JSON.stringify({ text: "Hello! I`m just a little server >_<" }));
+  res.json(JSON.stringify({ text: "The title description was supposed to be there..." })); // Hello! I`m just a little server >_<. 
 });
 
 app.get("/getArticlesPreview", cors(), (req, res) => {

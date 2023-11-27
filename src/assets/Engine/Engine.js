@@ -23,9 +23,9 @@ export default class Engine {
     this.init();
   }
 
-  async init() {
-    await this.stockfish.postMessage("uci");
-    await this.stockfish.postMessage("isready");
+   init() {
+    this.stockfish.postMessage("uci");
+    this.stockfish.postMessage("isready");
   }
 
   evaluatePosition(fen, depth, callback) {
