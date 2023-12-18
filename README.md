@@ -4,6 +4,7 @@
 Overall:
     - adaptive design
     - instructions "How does the page works"
+    - refactor an app directory to me more clear, what each part are in
 ## Work divided by pages:
 ### 1) About page:
     - write info about course work;
