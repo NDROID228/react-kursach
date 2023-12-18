@@ -1,18 +1,18 @@
 
 
-### TODO list
+# TODO list
 Overall:
     - adaptive design
     - instructions "How does the page works"
 ## Work divided by pages:
-# 1) About page:
+### 1) About page:
     - write info about course work;
-# 2) Puzzles page
+### 2) Puzzles page
     - upgrade puzzle tiles so they work with multiple moves (now: only one);
     - insert the dependences into mongoDB;
     - make groupes for different puzzles` themes OR make a sorting sequenses via mongoose + mongoDB???
     - fix displaying of puzzle tiles when the page shrinks
-# 3) Basics page:
+### 3) Basics page:
     - add interactive learning examples, such as:
         ~ board notation;
         ~ how each of the chess pieces moves;
@@ -20,10 +20,10 @@ Overall:
         ~ chess tactics - pin, fork, 8-th line etc.
         ~ additional literature to read and gain
     - also divide them into groups;
-# 4) Articles page:
+### 4) Articles page:
     - add a funtionality, which allows users to comment below each artile;
     - find info and add 2 more articles;
-# 5) Main page:
+### 5) Main page:
     - add introduction box for each page and basic reffers to them;
 
 
