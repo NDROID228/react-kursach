@@ -6,11 +6,17 @@
   padding: 10px;
   width: 100%;
   height: 200px;
+  border: 2px solid $dark-brown;
   border-radius: 10px;
   background-color: $light-skin;
   color: $dark-brown;
 
   display: flex;
+
+  &:hover {
+    box-shadow: 1px 1px 5px $dark-brown;
+    background-color: rgb(194, 179, 168);
+  }
 
   img {
     display: block;

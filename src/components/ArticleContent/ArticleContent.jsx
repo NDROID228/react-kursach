@@ -1,12 +1,13 @@
 import "./ArticleContent.scss";
 import Header from "../Header/Header";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
 
 const ArticleContent = ({}) => {
   const articleID = useParams();
   const [articleObj, setArticleObj] = useState({});
+  const navigate = useNavigate();
 
   const getArticleContent = new Promise((resolve, reject) => {
     fetch(`http://localhost:3003/getArticleContent`, {
@@ -28,13 +29,12 @@ const ArticleContent = ({}) => {
       .catch((error) => {
         console.error(error);
       });
-
-    //   setArticleObj(JSON.parse(json));
   });
 
   useEffect(() => {
     getArticleContent
       .then((strObj) => {
+        // console.log("before op");
         let obj = JSON.parse(strObj);
         // console.log(obj.text);
         setArticleObj(obj);
@@ -45,30 +45,41 @@ const ArticleContent = ({}) => {
   }, []);
 
   const unpackText = (textObj) => {
-    console.log(textObj);
     for (const key in textObj) {
       const values = {
-        h1: <h1>{textObj[key]}</h1>,
-        h3: <h3>{textObj[key]}</h3>,
-        p: <>{textObj[key]}</>,
-        // img: <img />
+        h1: <h1 key={textObj[key]}>{textObj[key]}</h1>,
+        h3: <h3 key={textObj[key]}>{textObj[key]}</h3>,
+        p: <p key={textObj[key]}>{textObj[key]}</p>,
+        img: (
+          <img
+            alt={textObj[key]}
+            src={`/img/${textObj[key]}`}
+            key={textObj[key]}
+          />
+        ),
       };
 
       return values[key];
     }
   };
 
+  const backToArticles = () => {
+    navigate("/articles")
+  }
+
   return (
     <div className="container">
       <Header currentPage="articles" />
       <main>
         <article>
-          <p>
+          <button className="button-back" onClick={backToArticles}>Back</button>
+          <div>
             <h1>{articleObj.title || null}</h1>
-          </p>
+          </div>
           {articleObj.text !== undefined
             ? articleObj.text.map((textObj) => {
-                return <p>{unpackText(textObj)}</p>;
+                console.log(textObj);
+                return <div>{unpackText(textObj)}</div>;
               })
             : null}
           {/* <code>{JSON.stringify(articleObj) || null}</code> */}

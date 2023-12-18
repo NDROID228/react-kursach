@@ -36,20 +36,20 @@ const ArticlesPage = () => {
     try {
       const response = await fetch(`http://localhost:3003/getArticlesPreview`);
 
-      if(!response.ok) {
+      if (!response.ok) {
         throw Error(response.statusText || "Something wrong");
       }
 
       json = await response.json();
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
 
     setArticlesArr(JSON.parse(json));
-  }
+  };
 
   useEffect(() => {
-    getDataArticles()
+    getDataArticles();
   }, []);
 
   return (
