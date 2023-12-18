@@ -1,7 +1,7 @@
 
 
 # TODO list
-Overall:
+## Overall:
     - adaptive design
     - instructions "How does the page works"
     - refactor an app directory to me more clear, what each part are in
