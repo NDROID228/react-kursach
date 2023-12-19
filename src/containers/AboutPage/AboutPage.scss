@@ -1,1 +1,64 @@
 @import "../../assets/constants/constants.scss";
+
+.main-content {
+  .lit-title {
+    position: absolute;
+    font-size: 25px;
+    bottom: calc((100vh - $header-height) * 0.5);
+    left: 50%;
+    translate: -50% 50%;
+
+    height: calc((100vh - $header-height) * 0.8);
+    width: $content-width;
+    padding: 10px;
+
+    background-color: #d5c4b9;
+    color: #4d3d33;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    div:nth-child(1) {
+      h2 {
+        margin-block-start: $zero;
+        margin-block-end: $zero;
+      }
+    }
+    div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        margin-block-start: $zero;
+        margin-block-end: 0.5em;
+      }
+      h2:nth-child(2) {
+        font-style: italic;
+      }
+    }
+    div:nth-child(3) {
+      width: 20%;
+      align-self: end;
+
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      ul {
+        text-align: left;
+        padding-inline-start: 10px;
+        li {
+          font-weight: bold;
+          margin-block-end: 0.5em;
+          ul li {
+            font-weight: normal;
+            margin-block-end: 0em;
+          }
+        }
+      }
+    }
+  }
+}
