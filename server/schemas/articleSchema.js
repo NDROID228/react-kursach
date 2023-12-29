@@ -2,24 +2,35 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const articleScema = new Schema({
-    // img: {
-    //     type: Image, ???
-    //     require: true,
-    // },
-    title: {
+  title: {
+    type: String,
+    require: true,
+  },
+  description: {
+    type: String,
+    require: true,
+  },
+  text: {
+    type: Object,
+    require: true,
+  },
+  comments: [
+    {
+      name: {
         type: String,
-        require: true,
-    },
-    description: {
+        required: false,
+      },
+      date: {
         type: String,
-        require: true,
+        required: false,
+      },
+      comment: {
+        type: String,
+        required: false,
+      },
     },
-    text: {
-        type: Object,
-        require: true,
-    }
+  ],
+});
 
-})
-
-const Article = mongoose.model("Cards", articleScema, 'articles');
-module.exports = Article; 
+const Article = mongoose.model("Cards", articleScema, "articles");
+module.exports = Article;

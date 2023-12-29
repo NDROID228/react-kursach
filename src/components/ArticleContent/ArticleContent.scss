@@ -1,6 +1,11 @@
 @import "../../assets/constants/constants.scss";
 
 
+hr {
+  width: $content-width;
+  border: 2px solid $dark-cyan;
+  border-radius: 5px;
+}
 
 article {
   width: $content-width;
@@ -38,6 +43,7 @@ article {
     }
     p {
       font-size: 1em;
+      line-height: 40px;
     }
     img {
       width: 100%;

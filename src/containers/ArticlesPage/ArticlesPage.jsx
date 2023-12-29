@@ -1,4 +1,3 @@
-import ArticleSlider from "../../components/ArticleBox/ArticleBox";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { useState, useEffect } from "react";

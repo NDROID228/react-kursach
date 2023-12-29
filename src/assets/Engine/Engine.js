@@ -1,4 +1,4 @@
-const stockfish = new Worker("./stockfish.js");
+const stockfish = new Worker("/stockfish.js");
 
 export default class Engine {
   constructor() {
@@ -23,7 +23,7 @@ export default class Engine {
     this.init();
   }
 
-   init() {
+  init() {
     this.stockfish.postMessage("uci");
     this.stockfish.postMessage("isready");
   }

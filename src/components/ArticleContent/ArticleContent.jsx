@@ -1,13 +1,20 @@
 import "./ArticleContent.scss";
-import Header from "../Header/Header";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import CommentBox from "../../components/CommentBox/CommentBox";
 
 const ArticleContent = ({}) => {
   const articleID = useParams();
   const [articleObj, setArticleObj] = useState({});
+
   const navigate = useNavigate();
+
+  const backToArticles = () => {
+    navigate("/articles");
+  };
 
   const getArticleContent = new Promise((resolve, reject) => {
     fetch(`http://localhost:3003/getArticleContent`, {
@@ -31,19 +38,6 @@ const ArticleContent = ({}) => {
       });
   });
 
-  useEffect(() => {
-    getArticleContent
-      .then((strObj) => {
-        // console.log("before op");
-        let obj = JSON.parse(strObj);
-        // console.log(obj.text);
-        setArticleObj(obj);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
   const unpackText = (textObj) => {
     for (const key in textObj) {
       const values = {
@@ -63,27 +57,90 @@ const ArticleContent = ({}) => {
     }
   };
 
-  const backToArticles = () => {
-    navigate("/articles")
-  }
+  const [commentsArr, setCommentsArr] = useState([]);
+  const getDataComments = async () => {
+    let json;
+
+    try {
+      const response = await fetch(`http://localhost:3003/getArticleComments`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(articleID),
+      });
+
+      if (!response.ok) {
+        throw Error(response.statusText || "Something wrong");
+      }
+
+      json = await response.json();
+      
+      if (json !== undefined) {
+        const commentsObj = JSON.parse(json);
+        console.log(JSON.parse(json));
+
+        setCommentsArr(commentsObj.comments)
+      } else {
+        setCommentsArr([])
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    // setCommentsArr(JSON.parse(json));
+  };
+
+  useEffect(() => {
+    getArticleContent
+      .then((strObj) => {
+        // console.log("before op");
+        let obj = JSON.parse(strObj);
+        // console.log(obj.text);
+        setArticleObj(obj);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+  useEffect(() => {
+    getDataComments()
+    // setCommentsArr([
+    //   {
+    //     name: "Nikita",
+    //     date: "26.12.2023",
+    //     comment:
+    //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam voluptatibus animi illum dolor optio voluptate incidunt, aliquid architecto! Odio?",
+    //   },
+    // ]);
+  }, []);
 
   return (
     <div className="container">
       <Header currentPage="articles" />
       <main>
         <article>
-          <button className="button-back" onClick={backToArticles}>Back</button>
+          <button className="button-back" onClick={backToArticles}>
+            Back
+          </button>
           <div>
             <h1>{articleObj.title || null}</h1>
           </div>
           {articleObj.text !== undefined
             ? articleObj.text.map((textObj) => {
-                console.log(textObj);
+                // console.log(textObj);
                 return <div>{unpackText(textObj)}</div>;
               })
             : null}
           {/* <code>{JSON.stringify(articleObj) || null}</code> */}
         </article>
+        <hr />
+        <CommentBox
+          commentsArr={commentsArr}
+          setCommentsArr={setCommentsArr}
+          articleID={articleID}
+        />
       </main>
       <Footer />
     </div>

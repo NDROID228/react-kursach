@@ -1,0 +1,107 @@
+@import "../../assets/constants/constants.scss";
+
+.comment-box {
+  width: $content-width;
+  color: $dark-cyan;
+  margin-bottom: 20px;
+
+  hr {
+    width: 100%;
+  }
+  p {
+    font-size: 20px;
+    padding-inline-start: 20px;
+  }
+  .add-comment {
+    .add-comment-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+      input[type="text"],
+      textarea,
+      input[type="submit"] {
+        margin: 10px 0;
+        height: 30px;
+        background-color: $light-cyan-shadow;
+        color: $dark-cyan;
+        border: 2px solid $dark-cyan;
+        border-radius: 5px;
+        font-size: 20px;
+        font-family: "Roboto Regular";
+        &::placeholder {
+          color: $dark-cyan;
+        }
+        &:active {
+          border: 2px solid $dark-cyan;
+          border-radius: 5px;
+        }
+      }
+      input[type="text"],
+      input[type="submit"] {
+        width: 20%;
+      }
+      input[type="text"],
+      textarea {
+        padding-right: 10px;
+        &:focus-visible {
+          outline: none;
+        }
+      }
+      input:autofill {
+        appearance: none;
+        background-color: $light-cyan-shadow !important;
+        color: $dark-cyan !important;
+      }
+      input:-webkit-autofill:focus {
+        appearance: none;
+        background-color: $light-cyan-shadow !important;
+        color: $dark-cyan !important;
+      }
+      textarea {
+        min-height: 30px;
+        height: 50px;
+        max-height: 200px;
+        resize: vertical;
+      }
+      input[type="submit"]:disabled {
+        background-color: #8d9998;
+        border: 2px solid #3b4b4a;
+        color: #3b4b4a;
+      }
+      p.error {
+        padding-inline-start: 5px;
+        color: $error;
+      }
+      textarea.error,
+      input[type="text"].error {
+        border: 2px solid $error;
+      }
+    }
+  }
+  .comment {
+    margin: 10px 0;
+    font-family: "Roboto Regular";
+    font-size: 25px;
+
+    .comment-title {
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+
+      .name {
+        font-size: inherit;
+      }
+
+      .time {
+        font-size: 23px;
+        margin-left: 20px;
+        color: $dark-cyan;
+      }
+    }
+    .comment-text {
+      padding-inline-start: 20px;
+    }
+  }
+}

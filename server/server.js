@@ -1,6 +1,6 @@
 const cors = require("cors");
 const mongoose = require("mongoose");
-const multer = require('multer');
+const multer = require("multer");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const Article = require("./schemas/articleSchema");
@@ -50,7 +50,11 @@ mongoose
   .catch((error) => console.log(`DB connection error: ${error}`));
 
 app.get("/msg", cors(), (req, res) => {
-  res.json(JSON.stringify({ text: "The title description was supposed to be there..." })); // Hello! I`m just a little server >_<. 
+  res.json(
+    JSON.stringify({
+      text: "The title description was supposed to be there...",
+    })
+  ); // Hello! I`m just a little server >_<.
 });
 
 app.get("/getArticlesPreview", cors(), (req, res) => {
@@ -58,9 +62,7 @@ app.get("/getArticlesPreview", cors(), (req, res) => {
   let getDataPromise = new Promise((resolve, reject) => {
     // console.log("log from promise");
     Article.find(
-      {
-        
-      },
+      {},
       {
         _id: 1,
         title: 1,
@@ -114,4 +116,68 @@ app.put("/getArticleContent", cors(), (req, res) => {
       res.status(500);
       console.log(err);
     });
+});
+
+app.patch("/getArticleComments", cors(), (req, res) => {
+  console.log(req.body)
+  const articleID = req.body.articleID;
+  let conn = mongoose.connection;
+  let getDataPromise = new Promise((resolve, reject) => {
+    // console.log("log from promise");
+    Article.findById(articleID, {_id: 0, comments: 1})
+      .exec()
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+  getDataPromise
+    .then((resolve) => {
+      // console.log("log from resolve");
+      let result = JSON.stringify(resolve);
+      res.json(result);
+    })
+    .catch((err) => {
+      // console.log("log from error");
+      res.status(500);
+      console.log(err);
+    });
+});
+
+app.post("/postComment", cors(), async (req, res) => {
+  const [articleIDObj, commentObj] = req.body;
+  console.log(articleIDObj, commentObj);
+
+  const articleID = articleIDObj.articleID;
+  const { name, comment, date } = commentObj;
+
+  try {
+    // Перевірка перед оновленням
+    const existingArticle = await Article.findById(articleID);
+    if (!existingArticle) {
+      return res.status(404).send("Article not found");
+    }
+
+    const updatedArticle = await Article.findOneAndUpdate(
+      { _id: articleID },
+      {
+        $push: {
+          comments: { name, comment, date }
+        },  
+      },
+      { new: true }
+    );
+
+    if (!updatedArticle) {
+      return res.status(404).send("Error updating article");
+    }
+    console.log(updatedArticle.comments);
+    res.status(200).json(updatedArticle.comments);
+  } catch (error) {
+    console.error("Error updating data:", error);
+    res.status(500).send("Error updating data");
+  }
 });

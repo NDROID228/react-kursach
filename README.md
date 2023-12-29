@@ -9,7 +9,7 @@
 ### 1) About page:
     - write info about course work; __Done!__
 ### 2) Puzzles page
-    - upgrade puzzle tiles so they work with multiple moves (now: only one);
+    - upgrade puzzle tiles so they work with multiple moves (now: only one); 
     - insert the dependences into mongoDB;
     - make groupes for different puzzles` themes OR make a sorting sequenses via mongoose + mongoDB???
     - fix displaying of puzzle tiles when the page shrinks
@@ -22,7 +22,7 @@
         ~ additional literature to read and gain
     - also divide them into groups;
 ### 4) Articles page:
-    - add a funtionality, which allows users to comment below each artile;
+    - add a funtionality, which allows users to comment below each artile; __Done!__
     - find info and add 2 more articles;
 ### 5) Main page:
     - add introduction box for each page and basic reffers to them;
