@@ -16,6 +16,7 @@ const AppRouter = () => {
         <Route path="/articles/:articleID" element={<ArticleContent />}></Route>
         <Route path="/basics" element={<BasicsPage />}></Route>
         <Route path="/puzzles" element={<PuzzlesPage />}></Route>
+        <Route path="/puzzles/:puzzlesLevel" element={<PuzzlesPage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>

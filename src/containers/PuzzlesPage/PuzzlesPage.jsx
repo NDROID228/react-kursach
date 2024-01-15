@@ -26,16 +26,16 @@ const PuzzlesPage = () => {
       correctMovesArr: ["Re8#"],
       modalMsg: "Mate in one",
     },
-    // {
-    //   boardConfig: {
-    //     id: "puzzle_IDObj3",
-    //     position: "k1n5/ppK5/1P6/7p/6pP/5pP1/5P2/Q7 w - - 0 1",
-    //     areArrowsAllowed: true,
-    //     arePiecesDraggable: true,
-    //   },
-    //   correctMovesArr: ["Qa6", "bxa6", "b7#"],
-    //   modalMsg: "Mate in two",
-    // },
+    {
+      boardConfig: {
+        id: "puzzle_IDObj3",
+        position: "k1n5/ppK5/1P6/7p/6pP/5pP1/5P2/Q7 w - - 0 1",
+        areArrowsAllowed: true,
+        arePiecesDraggable: true,
+      },
+      correctMovesArr: ["Qa6", "bxa6", "b7#"],
+      modalMsg: "Mate in two",
+    },
   ];
 
   return (

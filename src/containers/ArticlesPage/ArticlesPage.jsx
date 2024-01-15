@@ -4,29 +4,9 @@ import { useState, useEffect } from "react";
 import "./ArticlesPage.scss";
 
 import { DarkLogo } from "../../assets/img/Images";
-import ArticleBox from "../../components/ArticleBox/ArticleBox";
+import PreviewBox from "../../components/PreviewBox/PreviewBox";
 
 const ArticlesPage = () => {
-  // const articlesArr = [
-  //   {
-  //     title: "Chess history",
-  //     description:
-  //       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore nulla dolor consequatur pariatur est libero quam maxime impedit perspiciatis aliquam!",
-  //     image: DarkLogo,
-  //   },
-  //   {
-  //     title: "How to play chess?",
-  //     description: "This article is about basic principles of playing chess.",
-  //     image: DarkLogo,
-  //   },
-  //   {
-  //     title: "Popular Grandmasters today",
-  //     description:
-  //       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore nulla dolor perspiciatis aliquam!",
-  //     image: DarkLogo,
-  //   }
-  // ];
-
   const [articlesArr, setArticlesArr] = useState([]);
 
   const getDataArticles = async () => {
@@ -58,7 +38,7 @@ const ArticlesPage = () => {
         <div className="main-content">
           {articlesArr.map((articleDataObj) => {
             return (
-              <ArticleBox
+              <PreviewBox
                 articleID={articleDataObj._id}
                 title={articleDataObj.title}
                 description={articleDataObj.description}

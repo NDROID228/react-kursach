@@ -1,7 +1,7 @@
-import "./ArticleBox.scss";
+import "./PreviewBox.scss";
 import { useNavigate } from "react-router-dom";
 
-const ArticleBox = ({ title, description, image, articleID }) => {
+const PreviewBox = ({ title, description, image, articleID }) => {
   const navigate = useNavigate();
 
   const toArticleContent = () => {
@@ -19,4 +19,4 @@ const ArticleBox = ({ title, description, image, articleID }) => {
   );
 };
 
-export default ArticleBox;
+export default PreviewBox;
