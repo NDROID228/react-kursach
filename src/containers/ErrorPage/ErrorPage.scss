@@ -1,7 +1,7 @@
 @import "../../assets/constants/constants.scss";
 
 .error-box {
-    height: 100vh;
+    height: calc(100vh - $header-height);
 
     color: $dark-cyan;
 

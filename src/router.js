@@ -6,6 +6,9 @@ import ErrorPage from "./containers/ErrorPage/ErrorPage";
 import BasicsPage from "./containers/BasicsPage/BasicsPage";
 import PuzzlesPage from "./containers/PuzzlesPage/PuzzlesPage";
 import AboutPage from "./containers/AboutPage/AboutPage";
+import PuzzlesContent from "./components/PuzzlesContent/PuzzlesContent";
+import BasicBox from "./components/BasicBox/BasicBox";
+import PlayPage from "./containers/PlayPage/PlayPage";
 
 const AppRouter = () => {
   return (
@@ -16,7 +19,12 @@ const AppRouter = () => {
         <Route path="/articles/:articleID" element={<ArticleContent />}></Route>
         <Route path="/basics" element={<BasicsPage />}></Route>
         <Route path="/puzzles" element={<PuzzlesPage />}></Route>
-        <Route path="/puzzles/:puzzlesLevel" element={<PuzzlesPage />}></Route>
+        <Route
+          path="/puzzles/:puzzleLevel"
+          element={<PuzzlesContent />}
+        ></Route>
+
+        <Route path="/playground" element={<PlayPage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>

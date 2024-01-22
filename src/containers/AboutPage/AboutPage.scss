@@ -12,8 +12,9 @@
     width: $content-width;
     padding: 10px;
 
-    background-color: #d5c4b9;
-    color: #4d3d33;
+    background-color: $light-skin;
+    color: $dark-brown;
+    border: 5px solid $dark-brown;
     border-radius: 20px;
 
     display: flex;

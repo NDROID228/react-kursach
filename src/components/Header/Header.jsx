@@ -50,6 +50,14 @@ const Header = ({ currentPage }) => {
               Puzzles
             </li>
             <li
+              className={currentPage === "playground" ? "highlighted" : ""}
+              onClick={() => {
+                routeTo("/playground");
+              }}
+            >
+              Play
+            </li>
+            <li
               className={currentPage === "about" ? "highlighted" : ""}
               onClick={() => {
                 routeTo("/about");

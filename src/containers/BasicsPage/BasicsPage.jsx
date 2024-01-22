@@ -9,12 +9,6 @@ const BasicsPage = () => {
       id: "basic_board",
       preset: "static",
       defaultPosition: "8/8/8/8/8/8/8/8",
-    },
-    {
-      id: "basic_board",
-      preset: "playable",
-      areArrowsAllowed: true,
-      arePiecesDraggable: true,
     }
   ];
 

@@ -9,10 +9,10 @@
 ### 1) About page:
     - write info about course work; __Done!__
 ### 2) Puzzles page
-    - upgrade puzzle tiles so they work with multiple moves (now: only one); //
-    - insert the dependences into mongoDB;
-    - make groupes for different puzzles` themes OR make a sorting sequenses via mongoose + mongoDB???
-    - fix displaying of puzzle tiles when the window shrinks
+    - upgrade puzzle tiles so they work with multiple moves (now: only one); __Done!__
+    - insert the dependences into mongoDB; __Done!__
+    - make groupes for different puzzles` themes OR make a sorting sequenses via mongoose + mongoDB??? __Done!__
+    - fix displaying of puzzle tiles when the window shrinks __Done!__
 ### 3) Basics page:
     - add interactive learning examples, such as:
         ~ board notation;
@@ -28,12 +28,6 @@
     - add introduction box for each page and basic reffers to them;
 ## Errors that occured and was fixed during development:
 ### 1) "Unexpected token <" with stockfish.js file
-### 2) 
-###
-###
-###
-###
-###
 
 
 

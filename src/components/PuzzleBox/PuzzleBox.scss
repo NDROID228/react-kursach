@@ -1,8 +1,11 @@
 @import "../../assets/constants/constants.scss";
 
 .puzzle-container {
+  min-width: 500px;
   width: 40%;
+  min-height: calc(100vh - $header-height);
   height: calc(100vh - $header-height);
+  margin: 0 25px;
   z-index: 1;
 
   display: flex;

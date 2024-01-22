@@ -4,6 +4,7 @@ const multer = require("multer");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const Article = require("./schemas/articleSchema");
+const Puzzle = require("./schemas/puzzleSchema");
 
 const express = require("express");
 const app = express();
@@ -119,12 +120,12 @@ app.put("/getArticleContent", cors(), (req, res) => {
 });
 
 app.patch("/getArticleComments", cors(), (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   const articleID = req.body.articleID;
   let conn = mongoose.connection;
   let getDataPromise = new Promise((resolve, reject) => {
     // console.log("log from promise");
-    Article.findById(articleID, {_id: 0, comments: 1})
+    Article.findById(articleID, { _id: 0, comments: 1 })
       .exec()
       .then((data) => {
         resolve(data);
@@ -165,8 +166,8 @@ app.post("/postComment", cors(), async (req, res) => {
       { _id: articleID },
       {
         $push: {
-          comments: { name, comment, date }
-        },  
+          comments: { name, comment, date },
+        },
       },
       { new: true }
     );
@@ -180,4 +181,34 @@ app.post("/postComment", cors(), async (req, res) => {
     console.error("Error updating data:", error);
     res.status(500).send("Error updating data");
   }
+});
+
+app.get("/getPuzzles", cors(), (req, res) => {
+  const levelID = req.query.id;
+  console.log(levelID);
+
+  let conn = mongoose.connection;
+  let getDataPromise = new Promise((resolve, reject) => {
+    // console.log("log from promise");
+    Puzzle.find({level: levelID})
+      .exec()
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      }); 
+  });
+
+  getDataPromise
+    .then((resolve) => {
+      // console.log("log from resolve");
+      let result = JSON.stringify(resolve);
+      res.json(result);
+    })
+    .catch((err) => {
+      // console.log("log from error");
+      res.status(500);
+      console.log(err);
+    });
 });

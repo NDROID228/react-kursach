@@ -3,6 +3,8 @@ import IntroBox from "../../components/IntroBox/IntroBox";
 import { useState } from "react";
 import "./MainPage.scss";
 import Footer from "../../components/Footer/Footer";
+import { Link } from 'react-router-dom';
+import AboutPage from './../AboutPage/AboutPage';
 
 function MainPage() {
   // const [boardConfigArr, setBoardConfigArr] = useState([]);
@@ -27,6 +29,7 @@ function MainPage() {
       <h1>Do you really think chess is a hard game?</h1>
       <h1>Are your games messy the same way as there?</h1>
       <h1>Then try out this website and think again!</h1>
+      <h1>If you`re new to to this site, visit <Link to="/about" style={{textDecoration: "underline"}}>an About page</Link>.</h1>
     </>
   );
 

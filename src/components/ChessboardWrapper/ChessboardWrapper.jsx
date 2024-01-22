@@ -6,7 +6,6 @@ const ChessboardWrapper = ({ boardConfig, game }) => {
   // console.log(boardConfig);
   const [boardWidth, setBoardWidth] = useState(100);
   const [boardPosition, setBoardPosition] = useState(game.fen());
-  
 
   // useEffect(() => {
   //   const onResizeHandler = () => {
@@ -25,7 +24,6 @@ const ChessboardWrapper = ({ boardConfig, game }) => {
         areArrowsAllowed={boardConfig.areArrowsAllowed || null}
         onPieceDrop={boardConfig.onPieceDrop || (() => {})}
         boardOrientation={boardConfig.boardOrientation || "white"}
-        // boardWidth={"100%"}
       />
     </div>
   );
