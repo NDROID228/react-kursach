@@ -1,7 +1,6 @@
 const cors = require("cors");
 const mongoose = require("mongoose");
 const multer = require("multer");
-const fs = require("fs");
 const bodyParser = require("body-parser");
 const Article = require("./schemas/articleSchema");
 const Puzzle = require("./schemas/puzzleSchema");
@@ -39,7 +38,7 @@ const DB_URL =
   "mongodb+srv://NDROID:DNS15022007@clustertest.dnjoj6z.mongodb.net/chessyDB";
 
 mongoose
-  .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(DB_URL)
   .then((res) => {
     console.log(`Connected to MongoDB`);
   })

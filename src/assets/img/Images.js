@@ -9,6 +9,12 @@ import EasyLevelIcon from "./puzzle_1.png";
 import MediumLevelIcon from "./puzzle_2.png";
 import HardLevelIcon from "./puzzle_3.png";
 import StrangeLevelIcon from "./puzzle_4.png";
+import NextIcon from "./NextIcon.png";
+import PreviousIcon from "./PreviousIcon.png";
+import ResetIcon from "./ResetIcon.png";
+import LessonArrow from "./LessonArrow.png";
+import LessonExit from "./LessonExit.png"
+import DocumentIcon from "./DocumentIcon.png";
 
 export {
   DarkLogo,
@@ -22,4 +28,10 @@ export {
   MediumLevelIcon,
   HardLevelIcon,
   StrangeLevelIcon,
+  NextIcon,
+  PreviousIcon,
+  ResetIcon,
+  LessonArrow,
+  LessonExit,
+  DocumentIcon
 };

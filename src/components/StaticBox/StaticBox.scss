@@ -1,0 +1,209 @@
+@import "../../assets/constants/constants.scss";
+
+.basics-container {
+  width: 100%;
+  height: calc(100vh - $header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .basics-box {
+    height: 90%;
+    width: 100%;
+
+    background-color: $light-skin;
+    color: $dark-brown;
+    border: 5px solid $dark-brown;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+
+    .chessboard-container {
+      aspect-ratio: 1 / 1;
+      width: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .chessboard-box {
+        aspect-ratio: 1 / 1;
+        height: 80%;
+        display: flex;
+        align-items: center;
+      }
+
+      .chessboard-control-panel {
+        width: 80%;
+        height: 15%;
+        background-color: $light-skin-shadow;
+        border-radius: 0 0 10px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        .control-panel-btn {
+          margin: 0 10px;
+          aspect-ratio: 1 / 1;
+          background-color: $chess-light;
+          border: 4px solid $chess-dark;
+          border-radius: 10px;
+          width: 15%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 0 0 $chess-dark;
+          cursor: pointer;
+          img {
+            user-select: none;
+            aspect-ratio: 1 / 1;
+            width: 80%;
+          }
+          &:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 $chess-dark;
+          }
+          &:disabled {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 transparent;
+            border-color: #808080;
+            background-color: #d8d8d8;
+            cursor: auto;
+            img {
+              filter: grayscale(100%);
+            }
+          }
+        }
+      }
+    }
+    .text-container {
+      width: 50%;
+      height: 100%;
+      // background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .instrument-panel,
+      .lesson-header,
+      .lesson-text-box,
+      .lesson-control-panel {
+        width: 100%;
+      }
+      .instrument-panel {
+        height: 15%;
+        // background-color: #b16464;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .instrument-panel-buttons {
+          width: 25%;
+          height: 100%;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+
+          button {
+            background-color: $chess-light;
+            border: 4px solid $dark-brown;
+            border-radius: 10px;
+            cursor: pointer;
+            aspect-ratio: 1 / 1;
+            margin-right: 30px;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              user-select: none;
+              aspect-ratio: 1 / 1;
+            }
+            a img {
+              user-select: none;
+              aspect-ratio: 1 / 1;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .lesson-header {
+        height: 15%;
+        // background-color: #64b184;
+        width: calc(100% - 40px);
+        padding-right: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+      }
+      .lesson-text-box {
+        flex-grow: 1;
+        // background-color: #9564b1;
+        width: calc(100% - 40px);
+        padding-right: 40px;
+        p {
+          text-indent: 40px;
+          line-height: 45px;
+          font-size: 35px;
+          text-align: justify;
+        }
+      }
+      .lesson-control-panel {
+        padding-right: 40px;
+        height: 22%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        button {
+          background-color: $chess-light;
+          color: $dark-brown;
+          border: 5px solid $dark-brown;
+          border-radius: 10px;
+          box-shadow: 0 5px 0 0 $dark-brown;
+          font-family: "Roboto Regular";
+          font-size: 30px;
+          width: 45%;
+          height: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          span {
+            flex-grow: 1;
+            font-weight: bold;
+          }
+          img {
+            user-select: none;
+            aspect-ratio: 1 / 1;
+            height: 90%;
+          }
+          &:nth-child(1) {
+            img {
+              transform: rotate(180deg);
+            }
+          }
+          &:active {
+            transform: translateY(5px);
+            box-shadow: 0 0 0 0;
+          }
+          &:disabled {
+            background-color: #ccb899;
+            color: #404040;
+            border-color: #404040;
+            cursor: auto;
+            transform: translateY(5px);
+            box-shadow: 0 0 0 0;
+            img {
+              filter: grayscale(100%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import CommentBox from "../../components/CommentBox/CommentBox";
 
-const ArticleContent = ({}) => {
+const ArticleContent = () => {
   const articleID = useParams();
   const [articleObj, setArticleObj] = useState({});
 
@@ -88,16 +88,12 @@ const ArticleContent = ({}) => {
     } catch (error) {
       console.error(error);
     }
-
-    // setCommentsArr(JSON.parse(json));
   };
 
   useEffect(() => {
     getArticleContent
       .then((strObj) => {
-        // console.log("before op");
         let obj = JSON.parse(strObj);
-        // console.log(obj.text);
         setArticleObj(obj);
       })
       .catch((error) => {
@@ -106,14 +102,6 @@ const ArticleContent = ({}) => {
   }, []);
   useEffect(() => {
     getDataComments()
-    // setCommentsArr([
-    //   {
-    //     name: "Nikita",
-    //     date: "26.12.2023",
-    //     comment:
-    //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam voluptatibus animi illum dolor optio voluptate incidunt, aliquid architecto! Odio?",
-    //   },
-    // ]);
   }, []);
 
   return (

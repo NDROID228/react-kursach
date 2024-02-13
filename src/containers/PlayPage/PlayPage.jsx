@@ -1,25 +1,20 @@
 import "./PlayPage.scss";
 import Header from "./../../components/Header/Header";
 import Footer from "./../../components/Footer/Footer";
-import BasicBox from "./../../components/BasicBox/BasicBox";
+import PlayableBox from "../../components/PlayableBox/PlayableBox";
 
 const PlayPage = () => {
   return (
     <div className="container">
       <Header currentPage="playground" />
       <main>
-        <div className="play-container">
-          <div className="play-box">
-            <BasicBox
-              boardConfig={{
-                id: "playground",
-                preset: "playable",
-                areArrowsAllowed: true,
-                arePiecesDraggable: true,
-              }}
-            />
-          </div>
-        </div>
+        <PlayableBox
+          boardConfig={{
+            id: "playground",
+            areArrowsAllowed: true,
+            arePiecesDraggable: true,
+          }}
+        />
       </main>
       <Footer />
     </div>

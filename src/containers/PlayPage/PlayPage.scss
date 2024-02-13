@@ -1,12 +1,12 @@
-@import '../../assets/constants/constants.scss';
+@import "../../assets/constants/constants.scss";
 
 .play-container {
-    width: 100%;
-    height: calc(100vh - $header-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .play-box {
-        width: $content-width;
-    }
+  width: 100%;
+  height: calc(100vh - $header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .play-box {
+    width: $content-width;
+  }
 }

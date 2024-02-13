@@ -19,6 +19,7 @@
     aspect-ratio: 1 / 1.25;
     z-index: 1;
     background-color: $light-skin;
+    border: 5px solid $dark-brown;
     border-radius: 10px;
     overflow: hidden;
 
@@ -74,17 +75,32 @@
               user-select: none;
             }
           }
-          p {
+          .puzzle-modal-text {
             flex-grow: 1;
-            height: 100%;
-
-            font-size: 2rem;
-            user-select: none;
-
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            p {
+              flex-grow: 1;
+              height: 100%;
+
+              font-size: 2rem;
+              user-select: none;
+
+              display: flex;
+
+              &:nth-child(1) {
+                align-items: end;
+                justify-content: center;
+              }
+              &:nth-child(2) {
+                align-items: start;
+                justify-content: center;
+              }
+            }
           }
+
           &.default {
             background-color: $dark-brown;
             color: $light-skin;

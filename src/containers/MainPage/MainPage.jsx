@@ -7,15 +7,6 @@ import { Link } from 'react-router-dom';
 import AboutPage from './../AboutPage/AboutPage';
 
 function MainPage() {
-  // const [boardConfigArr, setBoardConfigArr] = useState([]);
-
-  // useState(() => {
-  //   setBoardConfigArr([
-  //     {
-  //       id: "intro_board"
-  //     }
-  //   ])
-  // }, []);
   const boardConfigArr = [
     {
       id: "intro_board",

@@ -1,15 +1,35 @@
 @import "../../assets/constants/constants.scss";
 
 .main-content {
+  .tutorial-video {
+    position: relative;
+    color: $dark-cyan;
+    width: 100%;
+    height: calc(100vh - $header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h2 {
+      font-size: 30px;
+      text-align: center;
+    }
+    video {
+      border: 4px solid $dark-brown;
+      box-shadow: $dark-brown;
+      height: 80%;
+    }
+  }
   .lit-title {
-    position: absolute;
+    position: relative;
     font-size: 25px;
     bottom: calc((100vh - $header-height) * 0.5);
     left: 50%;
     translate: -50% 50%;
 
     height: calc((100vh - $header-height) * 0.8);
-    width: $content-width;
+    width: 100%;
+    margin-top: $header-height;
     padding: 10px;
 
     background-color: $light-skin;
@@ -41,8 +61,10 @@
       }
     }
     div:nth-child(3) {
-      width: 20%;
+      min-width: 250px;
+      width: 30%;
       align-self: end;
+      margin-inline-end: 20px;
 
       display: flex;
       flex-direction: column;
@@ -50,7 +72,7 @@
 
       ul {
         text-align: left;
-        padding-inline-start: 10px;
+        padding-inline-start: 20px;
         li {
           font-weight: bold;
           margin-block-end: 0.5em;
@@ -59,6 +81,57 @@
             margin-block-end: 0em;
           }
         }
+      }
+    }
+    div:nth-child(4) {
+      h3 {
+        margin-block-start: 0;
+        margin-block-end: 0;
+      }
+    }
+    div:nth-child(5) {
+      position: absolute;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 10px;
+      display: flex;
+      box-shadow: 0px 5px 0px 0px $dark-brown;
+      .first-btn,
+      .second-btn {
+        width: calc(50% - (2 * 5px));
+        height: calc(100% - (2 * 5px));
+        font-size: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $light-skin-shadow;
+        border: 5px solid $dark-brown;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+          background-color: #d5c4b9;
+          border-color: #615446;
+          color: #615446
+        }
+        &:active {
+          transform: translateY(5px);
+        }
+        &.select {
+          transform: translateY(5px);
+        }
+      }
+      .first-btn {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      .second-btn {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
       }
     }
   }

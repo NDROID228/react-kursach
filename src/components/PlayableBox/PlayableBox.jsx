@@ -6,6 +6,12 @@ import Engine from "../../assets/Engine/Engine";
 import { Chess } from "chess.js";
 
 const PlayableBox = ({ boardConfig }) => {
+  const engine = useMemo(() => new Engine(), []);
+  const game = useMemo(() => new Chess(), []);
+
+  const [gamePosition, setGamePosition] = useState(game.fen());
+  const [stockfishLevel, setStockfishLevel] = useState(2);
+
   const levels = {
     Easy: 2,
     Medium: 8,
@@ -46,11 +52,6 @@ const PlayableBox = ({ boardConfig }) => {
       }
     },
   };
-  const engine = useMemo(() => new Engine(), []);
-  const game = useMemo(() => new Chess(), []);
-
-  const [gamePosition, setGamePosition] = useState(game.fen());
-  const [stockfishLevel, setStockfishLevel] = useState(2);
 
   const onDrop = useCallback(
     (sourceSquare, targetSquare, piece) => {
@@ -105,10 +106,10 @@ const PlayableBox = ({ boardConfig }) => {
   }
 
   return (
-    <div className="basics-container">
-      <div className="basics-box">
-        <div className="chessboard-container">
-          <div className="chessboard-box">
+    <div className="play-container">
+      <div className="play-box">
+        <div className="play-chessboard-container">
+          <div className="play-chessboard-box">
             <ChessboardWrapper
               boardConfig={boardConfigObj}
               game={game}
@@ -117,16 +118,14 @@ const PlayableBox = ({ boardConfig }) => {
           </div>
         </div>
 
-        <div className="text-container">
-          <div className="color-box">
+        <div className="play-text-container">
+          <div className="play-color-box">
             <h2>Choose the color:</h2>
-            {
-              Object.entries(colors).map(([color, onClickEvt]) => {
-                return <ButtonBox onClickEvt={onClickEvt} text={color} />;
-              })
-            }
+            {Object.entries(colors).map(([color, onClickEvt]) => {
+              return <ButtonBox onClickEvt={onClickEvt} text={color} />;
+            })}
           </div>
-          <div className="level-box">
+          <div className="play-level-box">
             <h2>Choose the level:</h2>
             {Object.entries(levels).map(([level, depth]) => (
               <ButtonBox
@@ -139,7 +138,7 @@ const PlayableBox = ({ boardConfig }) => {
               />
             ))}
           </div>
-          <div className="button-box">
+          <div className="play-button-box">
             <div className="button-half-box">
               <ButtonBox
                 onClickEvt={() => {

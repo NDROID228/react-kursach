@@ -1,9 +1,12 @@
 $dark-cyan: #2e4646;
 $light-cyan: #95b1af;
 $light-cyan-shadow: #769894;
+$lighter-brown: #554a3e;
 $dark-brown: #4d3d33;
 $light-skin: #d5c4b9;
 $light-skin-shadow: #bdab9f;
+$chess-light: #f0d9b5;
+$chess-dark: #b58863;   
 $error: #9c2400;
 $zero: 0;
 
@@ -22,6 +25,7 @@ body {
   margin: 0;
   background-color: $light-cyan;
 }
+div,
 h1,
 h2,
 h3,
@@ -83,4 +87,8 @@ ul {
 li {
   display: block;
   text-align: left;
+}
+img {
+  -webkit-user-drag: none;
+  user-select: none;
 }

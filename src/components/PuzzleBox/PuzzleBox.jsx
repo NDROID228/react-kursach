@@ -28,7 +28,7 @@ const PuzzleBox = ({ boardConfig, correctMovesArr, modalMsg }) => {
         {
           from: sourceSquare,
           to: targetSquare,
-          promotion: piece
+          promotion: piece,
         },
         { strict: true }
       );
@@ -154,7 +154,15 @@ const PuzzleBox = ({ boardConfig, correctMovesArr, modalMsg }) => {
               <div className="puzzle-modal-image">
                 <img src={modalImage} alt="" />
               </div>
-              <p>{modalState.modalMsg}</p>
+              <div className="puzzle-modal-text">
+                <p>{modalState.modalMsg}</p>
+                <p>
+                  {boardConfig.boardOrientation.replace(
+                    boardConfig.boardOrientation[0],
+                    boardConfig.boardOrientation[0].toUpperCase()
+                  ) + " to move"}
+                </p>
+              </div>
             </div>
           </div>
         </div>

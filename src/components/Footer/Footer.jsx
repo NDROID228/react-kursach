@@ -31,6 +31,11 @@ const Footer = () => {
             </Link>
           </div>
           <div className="footer-section-link-box">
+            <Link to="/playground" className="footer-section-link">
+              Play
+            </Link>
+          </div>
+          <div className="footer-section-link-box">
             <Link to="/about" className="footer-section-link">
               About
             </Link>

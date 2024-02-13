@@ -1,9 +1,8 @@
 import "./ButtonBox.scss";
 
-const ButtonBox = ({ onClickEvt, text }) => {
-  // console.log(type);
+const ButtonBox = ({ onClickEvt, text, isDisabled }) => {
   return (
-    <button onClick={onClickEvt} className={`basic-box-btn`}>
+    <button onClick={onClickEvt} className={`basic-box-btn`} disabled={isDisabled || false}>
       {text}
     </button>
   );

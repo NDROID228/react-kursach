@@ -30,7 +30,7 @@
       flex-direction: row;
       cursor: pointer;
 
-      border: 2px solid $dark-brown;
+      border: 5px solid $dark-brown;
       border-radius: 10px;
       background-color: $light-skin;
       color: $dark-brown;
@@ -45,9 +45,13 @@
       .puzzle-level-image {
         height: 100%;
         width: 50%;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
         img {
-
+          aspect-ratio: 1 / 1;
+          height: 100%;
+          
         }
       }
       .puzzle-level-name {

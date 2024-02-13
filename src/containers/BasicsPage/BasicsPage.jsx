@@ -1,25 +1,25 @@
 import Footer from "../../components/Footer/Footer";
-import BasicBox from "../../components/BasicBox/BasicBox";
 import Header from "../../components/Header/Header";
+import StaticBox from "../../components/StaticBox/StaticBox";
 import "./BasicsPage.scss";
+import { useState } from "react";
+import LessonConfig from "./LessonConfig";
 
 const BasicsPage = () => {
-  const boardConfigArr = [
-    {
-      id: "basic_board",
-      preset: "static",
-      defaultPosition: "8/8/8/8/8/8/8/8",
-    }
-  ];
+  const [lessonCounter, setLessonCounter] = useState(0);
+  const [lessonConfig, setLessonConfig] = useState(LessonConfig);
 
   return (
     <div className="container">
       <Header currentPage={"basics"} />
       <main>
         <div className="main-content">
-          {boardConfigArr.map((config) => {
-            return <BasicBox boardConfig={config} />;
-          })}
+          <StaticBox
+            boardConfig={lessonConfig[lessonCounter]}
+            setLessonCounter={setLessonCounter}
+            lessonCounter={lessonCounter}
+            lessonAmount={lessonConfig.length}
+          />
         </div>
       </main>
       <Footer />
